@@ -1,21 +1,23 @@
+//Home.jsx
 import React, { useEffect, useState } from 'react'
-import HeroSlider from '../components/HeroSlider';
+import HeroSlider from '../components/HeroSlider'
 import MealCard from '../components/MealCard';
 
 function Home() {
     const [recs, setRecs] = useState([]);
 
     useEffect(() => {
-        fetch(`https://ghyeyeong.github.io/myplate-app/db.json`)
-            .then((response) => response.json())
+        //fetch(`${import.meta.env.BASE_URL}db.json`)
+        fetch('/db.json')
+            .then((reponse) => reponse.json())
             .then((data) => {
-                const meals = data.meals || [];
-                const recommendedMeals = meals.filter((meal) => meal.recommended === true)
+                const meals = data.meals || []; //or 연산자로 넘겨받은 데이터가 있으면 data.meals 사용/없으면 [] 사용
+                const recommendedMeals = meals.filter(
+                    (meal) => meal.recommended === true)
                 const firstFour = recommendedMeals.slice(0, 4);
                 setRecs(firstFour);
             }).catch((error) => console.log('db.json 로드 실패', error))
     }, [])
-
 
     return (
         <div className='contents'>
