@@ -5,5 +5,5 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react()],
   // github Repository 이름
-  base: '/myplate-app/'
+  base: '/REACT-myplate/'
 })
