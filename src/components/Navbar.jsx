@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import logoImg from '../assets/logo.png'
 
 function Navbar() {
     return (
@@ -8,7 +7,7 @@ function Navbar() {
             <div className="top-area">
                 <h1 className="logo">
                     <Link to='/'>
-                        <img src={logoImg} alt="myplate" />
+                        <img src={`${import.meta.env.BASE_URL}logo.png`} />
                         <span>MY</span>
                         <span>PLATE</span>
                     </Link>
